@@ -9,8 +9,8 @@ interface GameCardProps {
 
 export function GameCard({game}: GameCardProps) {
     return (<>
-        <Link href={`games/${gameSafeUrl(game.name)}`} className="flex flex-col w-64 p-2 rounded bg-emerald-700 select-none">
-            <div className="aspect-thumb">
+        <Link href={`games/${gameSafeUrl(game.name)}`} className="flex flex-col w-64 p-2 rounded shadow-lg bg-emerald-700 select-none">
+            <div className="aspect-thumb shadow">
                 <img className="object-cover w-full h-full rounded" src={game.thumb} />
             </div>
             <div className="p-2">
