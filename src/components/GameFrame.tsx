@@ -19,7 +19,7 @@ export const GameFrame = ({
 
     const [enabled, setEnabled] = useState(false);
 
-    const iframe = <iframe src={`https://chocobois.github.io/${source}`} className='h-full w-full'></iframe>;
+    const iframe = <iframe src={source} className='h-full w-full'></iframe>;
     const gameFrame = (fullscreenHandle ? 
         <FullScreen className='h-full w-full' handle={fullscreenHandle}>{iframe}</FullScreen> : iframe
     );
