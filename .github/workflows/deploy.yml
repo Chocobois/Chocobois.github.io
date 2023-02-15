@@ -23,10 +23,10 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Build project
-        run: next build
+        run: npm run build
 
       - name: Export project
-        run: next export
+        run: npm run export
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
