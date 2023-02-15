@@ -3,10 +3,13 @@
 @tailwind utilities;
 
 * {
-    box-sizing: border-box;
+    @apply box-border;
 }
 
 html {
-    height: 100vh;
-    @apply bg-slate-800;
+    @apply bg-slate-800 h-screen;
+}
+
+#__next {
+    @apply p-8 flex flex-col min-h-screen;
 }

@@ -8,7 +8,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <Head>
       <link rel="shortcut icon" href="/favico.png" />
     </Head>
-    <div className="text-stone-100 bg-stone-200 bg-opacity-10 container mx-auto mt-8 p-8 rounded">
+    <div className="text-stone-100 bg-stone-200 bg-opacity-10 container mx-auto p-8 rounded flex-1">
       <Component {...pageProps} />
     </div>
   </>);
