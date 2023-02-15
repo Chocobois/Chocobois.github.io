@@ -1,18 +1,18 @@
 [
     {
-        "href": "/about",
-        "text": "Home"
+        "text": "Home",
+        "href": "/"
     },
     {
-        "href": "/about",
-        "text": "Games"
+        "text": "Games",
+        "href": "/games"
     },
     {
-        "href": "/about",
-        "text": "The Bois"
+        "text": "The Bois",
+        "href": "/about"
     },
     {
-        "href": "/about",
-        "text": "About"
+        "text": "About",
+        "href": "/about"
     }
 ]
