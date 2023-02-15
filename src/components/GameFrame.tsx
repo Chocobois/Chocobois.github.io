@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FullScreen, FullScreenHandle } from "react-full-screen";
-import Image from 'next/image';
 
 interface GameFrameProps {
     aspectRatio?: `${number}/${number}`
@@ -33,7 +32,7 @@ export const GameFrame = ({
                 enabled ? 
                     gameFrame :
                     <>
-                        {cover && <Image src={cover} alt="Game banner" className='object-cover opacity-50 h-full'></Image>}
+                        {cover && <img src={cover} alt="Game banner" className='object-cover opacity-50 h-full'></img>}
                         <button 
                             className='absolute font-bold bg-orange-600 hover:bg-orange-500 rounded p-2 transition-colors' 
                             onClick={() => setEnabled(true)}>
