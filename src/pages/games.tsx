@@ -8,9 +8,11 @@ export default function Games() {
         <div>
             <h1 className="text-5xl">Games</h1>
             <NavBar />
-            {games.map((game) => 
-                <GameCard thumb={game.thumb} name={game.name} description={game.description} />
-            )}
+            <div className="flex flex-wrap gap-8">
+                {games.map((game) => 
+                    <GameCard game={game} />
+                )}
+            </div>
         </div>
     </>);
 }
