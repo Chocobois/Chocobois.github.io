@@ -32,17 +32,18 @@ export default function Games({game}: GamesProps) {
 
 export async function getStaticPaths() {
     return {
-        paths: games.map((game) => {
-            return { 
-                params: { game: gameSafeUrl(game.name) }
-            }
-        }),
+        paths: games.map((game) => ({ 
+            params: { game: gameSafeUrl(game.name) }
+        })),
         fallback: false
     }
 }
 
-export const getStaticProps: GetStaticProps<{ game: GameDescription }> = async ({params}) => {
-    const game = games.find((game) => gameSafeUrl(game.name) == params?.game) as GameDescription;
+type GameStaticProps = GetStaticProps<{game: GameDescription}>;
+export const getStaticProps: GameStaticProps = async ({params}) => {
+    const game = games.find(
+        (game) => gameSafeUrl(game.name) == params?.game
+    ) as GameDescription;
     return {
         props: {
             game: game
