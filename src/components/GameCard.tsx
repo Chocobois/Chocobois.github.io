@@ -9,12 +9,12 @@ interface GameCardProps {
 
 export function GameCard({game}: GameCardProps) {
     return (<>
-        <Link href={`games/${gameSafeUrl(game.name)}`} className="flex flex-col w-64 p-2 rounded bg-orange-700">
-            <div>
-                <img src={game.thumb} />
+        <Link href={`games/${gameSafeUrl(game.name)}`} className="flex flex-col w-64 p-2 rounded bg-emerald-700 select-none">
+            <div className="aspect-thumb">
+                <img className="object-cover w-full h-full rounded" src={game.thumb} />
             </div>
-            <div>
-                <p className='font-bold'>{game.name}</p>
+            <div className="p-2">
+                <p className='font-bold text-xl'>{game.name}</p>
                 <p>{game.description}</p>
             </div>
         </Link>
