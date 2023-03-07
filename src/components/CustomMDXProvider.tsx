@@ -19,6 +19,7 @@ export default function CustomMDXProvider({ children }: CustomMDXProvider) {
                     const match = className?.match(/language-(\w+)/) || '';
                     const file = (split.findIndex((el: string) => el == 'file')+1);
                     const desc = (split.findIndex((el: string) => el == 'desc')+1);
+                    const line = Number(split[(split.findIndex((el: string) => el == 'line')+1)]);
                     const highlighted = (<>
                         <div className="flex justify-between gap-8 prose max-w-none ml-2 mr-2">
                             <p className="m-0 text-slate-300">{desc != split.length-1 ? split[desc] : ''}</p>
@@ -30,6 +31,7 @@ export default function CustomMDXProvider({ children }: CustomMDXProvider) {
                             showLineNumbers={true}
                             children={split[split.length-1].trim()}
                             style={theme}
+                            startingLineNumber={Number(line) || 1}
                             {...props} 
                         />
                     </>);
