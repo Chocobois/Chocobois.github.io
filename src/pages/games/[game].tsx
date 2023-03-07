@@ -1,12 +1,8 @@
 import { NavBar } from "@/components/NavBar";
-
-import { GetStaticProps } from "next";
 import { GameFrame } from "@/components/GameFrame";
 import { useFullScreenButton } from "@/hooks/useFullscreenButton";
-import { gameSafeUrl } from "@/util/game-safe-url";
 import { GetFromCategory } from "@/util/content-lister";
 import { lazy, Suspense } from "react";
-
 
 interface GamesProps {
     game: {
