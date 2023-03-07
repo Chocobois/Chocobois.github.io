@@ -1,4 +1,4 @@
-import { NavBar } from "../components/NavBar"
+import { NavBar } from "@/components/NavBar"
 import { nanoid } from 'nanoid';
 import Link from "next/link";
 import moment from "moment";

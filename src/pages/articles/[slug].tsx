@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { lazy, Suspense } from "react";
-import { NavBar } from "../../components/NavBar";
+import { NavBar } from "@/components/NavBar";
 
 type SlugProps = {page: string, name: string};
 

@@ -1,10 +1,10 @@
-import { NavBar } from "../../components/NavBar";
+import { NavBar } from "@/components/NavBar";
 
-import games from '../../data/games.json';
+import games from '@/data/games.json';
 import { GetStaticProps } from "next";
-import { GameFrame } from "../../components/GameFrame";
-import { useFullScreenButton } from "../../hooks/useFullscreenButton";
-import { gameSafeUrl } from "../../util/game-safe-url";
+import { GameFrame } from "@/components/GameFrame";
+import { useFullScreenButton } from "@/hooks/useFullscreenButton";
+import { gameSafeUrl } from "@/util/game-safe-url";
 
 type GameDescription = typeof games[number];
 

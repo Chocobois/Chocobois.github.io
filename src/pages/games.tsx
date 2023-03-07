@@ -1,7 +1,7 @@
-import { NavBar } from "../components/NavBar";
-import { GameCard } from "../components/GameCard";
+import { NavBar } from "@/components/NavBar";
+import { GameCard } from "@/components/GameCard";
 import { Fireworks } from '@fireworks-js/react'
-import games from '../data/games.json';
+import games from '@/data/games.json';
 
 export default function Games() {
     return (<>

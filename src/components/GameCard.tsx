@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { gameSafeUrl } from "../util/game-safe-url";
-import games from '../data/games.json';
+import { gameSafeUrl } from "@/util/game-safe-url";
+import games from '@/data/games.json';
 type GameDescription = typeof games[number];
 
 interface GameCardProps {
