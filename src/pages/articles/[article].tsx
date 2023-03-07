@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import { lazy, Suspense } from "react";
 import { NavBar } from "@/components/NavBar";
+import { GetFromCategory } from '@/util/content-lister';
 
 type ArticleProps = {page: string, name: string};
 
@@ -19,13 +20,12 @@ export default function Article({page, name}: ArticleProps) {
 }
 
 export async function getStaticPaths() {
-    const fs = await import('fs');
-    const files = fs.readdirSync('./content/articles')
-        .filter((file) => file.endsWith('mdx'));
+    const files = GetFromCategory('articles');
+
     return {
         paths: files.map(name => ({
             params: {
-                article: name.substring(0, name.length-4)
+                article: name
             }
         })),
         fallback: true,
