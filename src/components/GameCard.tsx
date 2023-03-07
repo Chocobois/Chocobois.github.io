@@ -1,6 +1,4 @@
 import Link from "next/link";
-import games from '@/data/games.json';
-type GameDescription = typeof games[number];
 
 interface GameCardProps {
     game: {
