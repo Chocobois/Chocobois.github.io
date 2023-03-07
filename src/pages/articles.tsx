@@ -2,6 +2,7 @@ import { NavBar } from "@/components/NavBar"
 import { nanoid } from 'nanoid';
 import Link from "next/link";
 import moment from "moment";
+import { GetFromCategory } from '@/util/content-lister';
 
 type ListDocsProps = {
     articles: {
@@ -30,19 +31,17 @@ export default function ListDocs({articles}: ListDocsProps) {
 }
 
 export const getStaticProps = async () => {
-    const fs = await import('fs');
-    const files = fs.readdirSync('./content/articles')
-        .filter((file) => file.endsWith('mdx'));
+    const files = GetFromCategory('articles');
     const modules = await Promise.all(
-        files.map((file) => import(`#/articles/${file}`))
+        files.map((file) => import(`#/articles/${file}.mdx`))
     );
-    const articles = modules.map((mod, index) => {
-        const file = files[index] as string;
+
+    const articles = modules.map(({name, date}, index) => {
         return {
-            name: mod.name,
-            date: mod.date,
+            name: name,
+            date: date,
             id: nanoid(),
-            href: file.substring(0, file.length - 4)
+            href: files[index] as string
         }
     }).sort((a, b) => a.date > b.date ? -1 : 1);
 
