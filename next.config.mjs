@@ -1,5 +1,6 @@
 // @ts-check
 import mdxConf from '@next/mdx';
+import remarkGfm from 'remark-gfm';
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.
  * This is especially useful for Docker builds.
@@ -9,9 +10,11 @@ import mdxConf from '@next/mdx';
 const withMDX = mdxConf({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [],
+    providerImportSource: "@mdx-js/react"
   },
+  
 });
 
 /** @type {import("next").NextConfig} */
