@@ -1,9 +1,22 @@
 import { NavBar } from "@/components/NavBar";
 import { GameCard } from "@/components/GameCard";
-import { Fireworks } from '@fireworks-js/react'
-import games from '@/data/games.json';
+import { GetFromCategory } from "@/util/content-lister";
+import { nanoid } from "nanoid";
 
-export default function Games() {
+type GamesProps = {
+    games: {
+        name: string
+        date: string
+        description: string
+        thumb: string
+        source: string
+        cover: string
+        id: string
+        href: string
+    }[]
+}
+
+export default function Games({ games }: GamesProps) {
     return (<>
         <div>
             <h1 className="text-5xl">Games</h1>
@@ -13,17 +26,27 @@ export default function Games() {
                     <GameCard game={game} />
                 )}
             </div>
-            {/*
-            <Fireworks 
-                options={{
-                rocketsPoint: {
-                    min: 0,
-                    max: 100,
-                }
-                }}
-                className="top-0 left-0 w-full h-full fixed pointer-events-none">
-            </Fireworks>
-            */}
         </div>
     </>);
+}
+
+export const getStaticProps = async () => {
+    const files = GetFromCategory('games');
+    const modules = await Promise.all(
+        files.map((file) => import(`#/games/${file}.mdx`))
+    );
+
+    const games = modules.map(({name, date, description, thumb, source, cover}, index) => {
+        return {
+            name, date, description, thumb, source, cover,
+            id: nanoid(),
+            href: files[index] as string
+        }
+    }).sort((a, b) => a.date > b.date ? -1 : 1);
+
+    return {
+        props: {
+            games
+        }
+    }
 }

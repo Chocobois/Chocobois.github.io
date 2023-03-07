@@ -1,4 +1,4 @@
-import Links from '../data/nav.json';
+import Links from '@/nav.json';
 import Link from 'next/link';
 
 export function NavBar() {
