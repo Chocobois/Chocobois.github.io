@@ -23,7 +23,7 @@ export default function Games({ games }: GamesProps) {
             <NavBar />
             <div className="flex flex-wrap gap-8">
                 {games.map((game) => 
-                    <GameCard game={game} />
+                    <GameCard key={game.id} game={game} />
                 )}
             </div>
         </div>
