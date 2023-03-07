@@ -2,10 +2,10 @@ import { GetStaticProps } from "next";
 import { lazy, Suspense } from "react";
 import { NavBar } from "@/components/NavBar";
 
-type SlugProps = {page: string, name: string};
+type ArticleProps = {page: string, name: string};
 
-export default function Slug({page, name}: SlugProps) {
-    const MDX = lazy(() => import(`../../../articles/${page}.mdx`));
+export default function Article({page, name}: ArticleProps) {
+    const MDX = lazy(() => import(`#/articles/${page}.mdx`));
 
     return (<>
         <h1 className="text-5xl">{name}</h1>
@@ -20,22 +20,22 @@ export default function Slug({page, name}: SlugProps) {
 
 export async function getStaticPaths() {
     const fs = await import('fs');
-    const files = fs.readdirSync('./articles')
+    const files = fs.readdirSync('./content/articles')
         .filter((file) => file.endsWith('mdx'));
     return {
         paths: files.map(name => ({
             params: {
-                slug: name.substring(0, name.length-4)
+                article: name.substring(0, name.length-4)
             }
         })),
         fallback: true,
     }
 }
 
-type PageStaticProps = GetStaticProps<SlugProps>;
+type PageStaticProps = GetStaticProps<ArticleProps>;
 export const getStaticProps: PageStaticProps = async ({params}) => {
-    const file = (`${params?.slug}`);
-    const mdx = await import(`../../../articles/${file}.mdx`);
+    const file = (`${params?.article}`);
+    const mdx = await import(`#/articles/${file}.mdx`);
     return {
         props: {
             page: file,

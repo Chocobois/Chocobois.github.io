@@ -31,10 +31,10 @@ export default function ListDocs({articles}: ListDocsProps) {
 
 export const getStaticProps = async () => {
     const fs = await import('fs');
-    const files = fs.readdirSync('./articles')
+    const files = fs.readdirSync('./content/articles')
         .filter((file) => file.endsWith('mdx'));
     const modules = await Promise.all(
-        files.map((file) => import(`../../articles/${file}`))
+        files.map((file) => import(`#/articles/${file}`))
     );
     const articles = modules.map((mod, index) => {
         const file = files[index] as string;
