@@ -13,6 +13,7 @@ export default function Games() {
                     <GameCard game={game} />
                 )}
             </div>
+            {/*
             <Fireworks 
                 options={{
                 rocketsPoint: {
@@ -22,6 +23,7 @@ export default function Games() {
                 }}
                 className="top-0 left-0 w-full h-full fixed pointer-events-none">
             </Fireworks>
+            */}
         </div>
     </>);
 }
