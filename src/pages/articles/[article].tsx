@@ -2,7 +2,6 @@ import { GetStaticProps } from "next";
 import { lazy, Suspense } from "react";
 import { NavBar } from "@/components/NavBar";
 import { GetFromCategory } from '@/util/content-lister';
-import CustomMDXProvider from "@/components/CustomMDXProvider";
 
 type ArticleProps = {page: string, name: string};
 
@@ -14,7 +13,7 @@ export default function Article({page, name}: ArticleProps) {
         <NavBar></NavBar>
         <Suspense>
             <div className="prose dark:prose-invert max-w-none">
-                <MDX/>
+                <MDX />
             </div>
         </Suspense>
     </>);
