@@ -12,13 +12,11 @@ export default function Article({page, name}: ArticleProps) {
     return (<>
         <h1 className="text-5xl">{name}</h1>
         <NavBar></NavBar>
-        <CustomMDXProvider>
-            <Suspense>
-                <div className="prose dark:prose-invert max-w-none">
-                    <MDX/>
-                </div>
-            </Suspense>
-        </CustomMDXProvider>
+        <Suspense>
+            <div className="prose dark:prose-invert max-w-none">
+                <MDX/>
+            </div>
+        </Suspense>
     </>);
 }
 
