@@ -10,12 +10,13 @@ interface GameCardProps {
         cover: string
         id: string
         href: string
+        color: string
     }
 }
 
 export function GameCard({game}: GameCardProps) {
     return (<>
-        <Link href={`games/${game.href}`} className="flex flex-col w-64 p-2 rounded shadow-lg bg-emerald-700 select-none">
+        <Link href={`games/${game.href}`} className="flex flex-col w-64 p-2 rounded shadow-lg select-none" style={{backgroundColor: game.color}}>
             <div className="aspect-thumb shadow">
                 <img className="object-cover w-full h-full rounded" src={game.thumb} />
             </div>

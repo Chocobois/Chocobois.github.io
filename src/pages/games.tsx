@@ -13,6 +13,7 @@ type GamesProps = {
         cover: string
         id: string
         href: string
+        color: string
     }[]
 }
 
@@ -36,9 +37,9 @@ export const getStaticProps = async () => {
         files.map((file) => import(`#/games/${file}.mdx`))
     );
 
-    const games = modules.map(({name, date, description, thumb, source, cover}, index) => {
+    const games = modules.map(({name, date, description, thumb, source, cover, color}, index) => {
         return {
-            name, date, description, thumb, source, cover,
+            name, date, description, thumb, source, cover, color,
             id: nanoid(),
             href: files[index] as string
         }
