@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { useRef } from "react";
+import { useEffectOnce } from "usehooks-ts";
+import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt';
 
 interface GameCardProps {
     game: {
@@ -15,12 +18,24 @@ interface GameCardProps {
 }
 
 export function GameCard({game}: GameCardProps) {
+    const cardRef = useRef<HTMLAnchorElement & HTMLVanillaTiltElement>(null);
+
+    useEffectOnce(() => {
+        const card = cardRef.current as HTMLVanillaTiltElement;
+        Tilt.init(card, {
+            reverse: true,
+            scale: 1.05,
+            perspective: 2000,
+            gyroscope: false
+        });
+    });
+
     return (<>
-        <Link href={`games/${game.href}`} className="flex flex-col w-64 p-2 rounded shadow-lg select-none" style={{backgroundColor: game.color}}>
-            <div className="aspect-thumb shadow">
-                <img className="object-cover w-full h-full rounded" src={game.thumb} />
+        <Link href={`games/${game.href}`} className="flex flex-col w-64 p-2 rounded shadow-lg shadow-slate-800 select-none" style={{backgroundColor: game.color, transformStyle: "preserve-3d"}} ref={cardRef}>
+            <div className="aspect-thumb  p-1" style={{transform: "translateZ(20px)"}}>
+                <img className="object-cover w-full h-full rounded shadow shadow-slate-800" src={game.thumb} />
             </div>
-            <div className="p-2">
+            <div className="p-2" style={{transform: "translateZ(15px)"}}>
                 <p className='font-bold text-xl'>{game.name}</p>
                 <p>{game.description}</p>
             </div>
