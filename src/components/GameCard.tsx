@@ -31,9 +31,9 @@ export function GameCard({game}: GameCardProps) {
     });
 
     return (<>
-        <Link href={`games/${game.href}`} className="flex flex-col w-64 p-2 rounded shadow-lg shadow-slate-800 select-none" style={{backgroundColor: game.color, transformStyle: "preserve-3d"}} ref={cardRef}>
-            <div className="aspect-thumb  p-1" style={{transform: "translateZ(20px)"}}>
-                <img className="object-cover w-full h-full rounded shadow shadow-slate-800" src={game.thumb} />
+        <Link href={`games/${game.href}`} className="flex flex-col w-64 p-2 rounded shadow-lg shadow-slate-800 select-none min-h-[23em]" style={{backgroundColor: game.color, transformStyle: "preserve-3d"}} ref={cardRef}>
+            <div className="aspect-thumb p-1" style={{transform: "translateZ(20px)"}}>
+                <img className="object-cover w-full h-full rounded shadow shadow-slate-800" src={`./games/${game.href}/${game.thumb}`} />
             </div>
             <div className="p-2" style={{transform: "translateZ(15px)"}}>
                 <p className='font-bold text-xl'>{game.name}</p>

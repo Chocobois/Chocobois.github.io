@@ -23,6 +23,7 @@ export default function Games({game}: GamesProps) {
         source={game.source}
         className="drop-shadow-lg"
         cover={game.cover}
+        href={game.href}
     />);
     
     return (<>
@@ -50,13 +51,8 @@ export async function getStaticPaths() {
 
 export const getStaticProps = async ({params}: any) => {
     const file = (`${params?.game}`);
-    const {
-        name,
-        date,
-        source,
-        cover
-    } = await import(`#/games/${file}.mdx`);
-
+    const { meta } = await import(`#/games/${file}.mdx`);
+    const { name, date, source, cover } = meta;
     return {
         props: {
             game: {

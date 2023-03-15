@@ -1,10 +1,12 @@
-export const name = "Fire and Dice";
-export const date = "2022-07-17";
-export const description = "Dice up the competition with some dragon dice! Made for GMTK Game Jam 2022.";
-export const thumb = "/images/fireanddice-thumb.png";
-export const source = "https://chocobois.github.io/DiceEmUp/";
-export const cover = "/images/fireanddice-cover.png";
-export const color = "rgba(142, 65, 61, 1)";
+export const meta = {
+    name: "Fire and Dice",
+    date: "2022-07-17",
+    description: "Dice up the competition with some dragon dice! Made for GMTK Game Jam 2022.",
+    thumb: "fireanddice-thumb.png",
+    source: "DiceEmUp",
+    cover: "fireanddice-cover.png",
+    color: "rgba(142, 65, 61, 1)",
+}
 
 {props.Game}
 {props.FullScreenButton}
@@ -21,3 +23,5 @@ export const color = "rgba(142, 65, 61, 1)";
 
 Hold and drag a dice to move it  
 Press Attack to deal damage to the adventurers
+
+{props.Source}

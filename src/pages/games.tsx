@@ -1,6 +1,7 @@
 import { NavBar } from "@/components/NavBar";
 import { GameCard } from "@/components/GameCard";
 import { GetFromCategory } from "@/util/content-lister";
+import { SyncPublicDirectory } from "@/util/copy-images";
 import { nanoid } from "nanoid";
 
 type GamesProps = {
@@ -33,11 +34,14 @@ export default function Games({ games }: GamesProps) {
 
 export const getStaticProps = async () => {
     const files = GetFromCategory('games');
+    await SyncPublicDirectory('games', files);
+
     const modules = await Promise.all(
         files.map((file) => import(`#/games/${file}.mdx`))
     );
 
-    const games = modules.map(({name, date, description, thumb, source, cover, color}, index) => {
+    const games = modules.map(({meta}, index) => {
+        const {name, date, description, thumb, source, cover, color} = meta;
         return {
             name, date, description, thumb, source, cover, color,
             id: nanoid(),

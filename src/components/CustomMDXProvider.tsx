@@ -1,4 +1,5 @@
 import { MDXProvider } from '@mdx-js/react';
+import { useRouter } from 'next/router';
 import { ReactNode } from 'react';
 import SyntaxHighlighter from "react-syntax-highlighter";
 import theme from "react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark-reasonable";
@@ -43,6 +44,10 @@ export default function CustomMDXProvider({ children }: CustomMDXProvider) {
                         </button>
                     </div>);
                     return highlighted;
+                },
+                img: ({src, alt}) => {
+                    const router = useRouter();
+                    return (<img src={`${router.asPath}/${src}`} alt={alt}></img>);
                 }
             }}>
             {children}
