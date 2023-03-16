@@ -23,7 +23,7 @@ export default function Games({ games }: GamesProps) {
         <div>
             <h1 className="text-5xl">Games</h1>
             <NavBar />
-            <div className="flex flex-wrap gap-8">
+            <div className="flex flex-wrap gap-8 justify-center">
                 {games.map((game) => 
                     <GameCard key={game.id} game={game} />
                 )}
