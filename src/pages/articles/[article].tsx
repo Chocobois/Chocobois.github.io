@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 import { lazy, Suspense } from "react";
-import { NavBar } from "@/components/NavBar";
+import { NavBar } from "@/components/nav-bar";
 import { GetFromCategory } from '@/util/content-lister';
 
 type ArticleProps = {page: string, name: string};
