@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FullScreen, FullScreenHandle } from "react-full-screen";
+import { useEventListener } from 'usehooks-ts';
 
 interface GameFrameProps {
     aspectRatio?: `${number}/${number}`
@@ -20,8 +21,15 @@ export const GameFrame = ({
     }: GameFrameProps ) => {
 
     const [enabled, setEnabled] = useState(false);
+    const iframeRef = useRef<HTMLIFrameElement>(null);
 
-    const iframe = <iframe src={`https://chocobois.github.io/${source}`} className='h-full w-full'></iframe>;
+    useEventListener("fullscreenchange", () => {
+        if(!document.fullscreenElement) {
+            screen.orientation.unlock();
+        }
+    }, iframeRef);
+
+    const iframe = <iframe src={`https://chocobois.github.io/${source}`} className='h-full w-full' ref={iframeRef}></iframe>;
     const gameFrame = (fullscreenHandle ? 
         <FullScreen className='h-full w-full' handle={fullscreenHandle}>{iframe}</FullScreen> : iframe
     );
