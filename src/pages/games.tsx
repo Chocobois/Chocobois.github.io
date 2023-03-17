@@ -1,5 +1,5 @@
-import { NavBar } from "@/components/NavBar";
-import { GameCard } from "@/components/GameCard";
+import { NavBar } from "@/components/nav-bar";
+import { GameCard } from "@/components/game-card";
 import { GetFromCategory } from "@/util/content-lister";
 import { SyncPublicDirectory } from "@/util/copy-images";
 import { nanoid } from "nanoid";

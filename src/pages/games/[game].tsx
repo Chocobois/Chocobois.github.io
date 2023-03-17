@@ -1,6 +1,6 @@
-import { NavBar } from "@/components/NavBar";
-import { GameFrame } from "@/components/GameFrame";
-import { useFullScreenButton } from "@/hooks/useFullscreenButton";
+import { NavBar } from "@/components/nav-bar";
+import { GameFrame } from "@/components/game-frame";
+import { useFullScreenButton } from "@/hooks/fullscreen-button";
 import { GetFromCategory } from "@/util/content-lister";
 import { lazy, Suspense } from "react";
 
