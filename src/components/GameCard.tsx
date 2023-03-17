@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useEffectOnce } from "usehooks-ts";
 import Tilt, { HTMLVanillaTiltElement } from 'vanilla-tilt';
+import { isMobile } from 'react-device-detect';
 
 interface GameCardProps {
     game: {
@@ -23,10 +24,10 @@ export function GameCard({game}: GameCardProps) {
     useEffectOnce(() => {
         const card = cardRef.current as HTMLVanillaTiltElement;
         Tilt.init(card, {
-            reverse: true,
+            reverse: !isMobile,
             scale: 1.05,
             perspective: 2000,
-            //gyroscope: false
+            gyroscope: true
         });
     });
 
