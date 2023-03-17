@@ -26,7 +26,7 @@ export function GameCard({game}: GameCardProps) {
             reverse: true,
             scale: 1.05,
             perspective: 2000,
-            gyroscope: false
+            //gyroscope: false
         });
     });
 

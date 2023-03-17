@@ -31,7 +31,7 @@ export default function Games({game}: GamesProps) {
             <h1 className="text-5xl">{game.name}</h1>
             <NavBar />
             <Suspense>
-                <div className="prose dark:prose-invert max-w-none">
+                <div className="prose prose-invert max-w-none">
                     <MDX Game={gameFrame} FullScreenButton={<FullScreenButton />}/>
                 </div>
             </Suspense>
