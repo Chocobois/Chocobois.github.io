@@ -7,11 +7,9 @@ const Highlighter: any = SyntaxHighlighter;
 export default function MdxPre({className, children, ...props}: JSX.IntrinsicElements['pre']) {
     const [value, copy] = useCopyToClipboard();
 
-    const match = className?.match(/language-(\w+)/) || '';
+    const content = (children as JSX.Element).props as JSX.ElementChildrenAttribute & { className: string};
+    const match = content.className?.match(/language-(\w+)/) || '';
     const regexpAt = /@(\w+) (.+)/;
-
-    const content = (children as JSX.Element).props as JSX.ElementChildrenAttribute;
-
     const split = String(content.children).trim().split(regexpAt);
     const file = (split.findIndex((el: string) => el == 'file')+1);
     const desc = (split.findIndex((el: string) => el == 'desc')+1);
