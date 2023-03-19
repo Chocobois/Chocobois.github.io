@@ -18,9 +18,9 @@ export default function MdxPre({className, children, ...props}: JSX.IntrinsicEle
 
     return (<>
         <div className='relative overflow-hidden bg-slate-900 rounded mb-2'>
-            <div className="flex justify-between gap-8 prose max-w-none pl-2 pr-2">
+            <div className="flex justify-between gap-8 prose max-w-none pl-2 pr-2 pt-1 text-sm">
                 <p className="m-0 text-slate-300">{desc != split.length-1 ? split[desc] : ''}</p>
-                <p className="m-0 text-stone-500">{file != split.length-1 ? split[file] : ''}</p>
+                <p className="m-0 text-stone-400">{file != split.length-1 ? split[file] : ''}</p>
             </div>
             <Highlighter 
                 className={`not-prose rounded m-2`}
@@ -32,7 +32,7 @@ export default function MdxPre({className, children, ...props}: JSX.IntrinsicEle
                 {...props} 
             />
             <button className={`absolute right-2 bottom-0 p-2 transition-colors select-none 
-                                font-bold hover:text-blue-200 ${value && 'focus:text-green-300'}`}
+                                font-bold text-sm hover:text-blue-200 ${value && 'focus:text-green-300'}`}
                 onClick={() => copy(trimmedCode)}>
                 Copy
             </button>
