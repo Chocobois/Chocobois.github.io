@@ -10,7 +10,7 @@ type MDXProviderChocoProps = {
 
 export default function MDXProviderChoco({ children }: MDXProviderChocoProps) {
     return (<>
-        <MDXProvider components={{ code, img, pre }}>
+        <MDXProvider components={{ img, pre, code }}>
             {children}
         </MDXProvider>
     </>);
