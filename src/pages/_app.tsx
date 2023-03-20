@@ -1,8 +1,16 @@
+import "@/styles/globals.css";
+import "@fortawesome/fontawesome-svg-core/styles.css"; 
+
 import { type AppType } from "next/dist/shared/lib/utils";
 import Head from "next/head";
 import MDXProviderChoco from "@/components/mdx-provider-choco";
 
-import "@/styles/globals.css";
+import { config, library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+library.add(fas, fab);
+config.autoAddCss = false;
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (<>

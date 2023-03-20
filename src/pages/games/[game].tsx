@@ -3,6 +3,7 @@ import { GameFrame } from "@/components/game-frame";
 import { useFullScreenButton } from "@/hooks/fullscreen-button";
 import { GetFromCategory } from "@/util/content-lister";
 import { lazy, Suspense } from "react";
+import { Contributor } from "@/components/contributors";
 
 interface GamesProps {
     game: {
@@ -11,6 +12,8 @@ interface GamesProps {
         source: string
         cover: string
         href: string
+        contributors: string[]
+        color: string
     }
 }
 
@@ -25,6 +28,12 @@ export default function Games({game}: GamesProps) {
         cover={game.cover}
         href={game.href}
     />);
+
+    const contributors = (<div style={{backgroundColor: game.color}} className="text-white rounded mt-4">{
+        game.contributors.map((name) => 
+            <Contributor key={name} who={name}/>
+        )
+    }</div>);
     
     return (<>
         <div>
@@ -32,7 +41,7 @@ export default function Games({game}: GamesProps) {
             <NavBar />
             <Suspense>
                 <div className="prose prose-invert max-w-none">
-                    <MDX Game={gameFrame} FullScreenButton={<FullScreenButton />}/>
+                    <MDX Game={gameFrame} FullScreenButton={<FullScreenButton />} Contributors={contributors}/>
                 </div>
             </Suspense>
         </div>
@@ -52,7 +61,7 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({params}: any) => {
     const file = (`${params?.game}`);
     const { meta } = await import(`#/games/${file}.mdx`);
-    const { name, date, source, cover } = meta;
+    const { name, date, source, cover, contributors, color } = meta;
     return {
         props: {
             game: {
@@ -60,6 +69,8 @@ export const getStaticProps = async ({params}: any) => {
                 date,
                 source,
                 cover,
+                contributors,
+                color,
                 href: file
             }
         }
