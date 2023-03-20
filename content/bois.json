@@ -1,4 +1,8 @@
 {
+    "golen": {
+        "display": "Golenchu",
+        "socials": {}
+    },
     "luxx": {
         "display": "LuxxArt",
         "socials": {
@@ -17,5 +21,9 @@
         "socials": {
             "bandcamp": "m-a-t-o"
         }
+    },
+    "konix": {
+        "display": "KonixKun",
+        "socials": {}
     }
 }

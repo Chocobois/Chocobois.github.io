@@ -50,7 +50,7 @@ export function Contributor({who}: ContributorProps) {
     );
 
     return (<>
-        <div className='flex justify-between items-center not-prose p-1 pl-2 pr-2'>
+        <div className='flex justify-between items-center not-prose p-1 pl-2 pr-2 even:bg-black even:bg-opacity-20'>
             <p className="font-semibold text-xl">{boi.display || who}</p>
             <div className='flex justify-between gap-2'>{social}</div>
         </div>
