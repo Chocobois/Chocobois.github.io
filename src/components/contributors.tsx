@@ -31,6 +31,11 @@ const brandLookup = {
         url: (at: string) => `https://soundcloud.com/${at}`,
         icon: () => <FontAwesomeIcon icon={["fab", "soundcloud"]} />,
     },
+    bandcamp: {
+        name: (at: string) => `Bandcamp: ${at}`,
+        url: (at: string) => `https://${at}.bandcamp.com/`,
+        icon: () => <FontAwesomeIcon icon={["fab", "bandcamp"]} />,
+    },
 }
 
 const brand = (key: string) => brandLookup[key as keyof typeof brandLookup];
