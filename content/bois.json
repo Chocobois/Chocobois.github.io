@@ -1,7 +1,10 @@
 {
     "golen": {
         "display": "Golenchu",
-        "socials": {}
+        "socials": {
+            "twitter": "@Golenchu",
+            "github": "Golen87"
+        }
     },
     "luxx": {
         "display": "LuxxArt",
@@ -13,13 +16,17 @@
     "arcticfqx": {
         "display": "ArcticFqx",
         "socials": {
-            "twitter": "@ArcticFqx"
+            "twitter": "@ArcticFqx",
+            "github": "ArcticFqx"
         }
     },
     "mato": {
         "display": "MatoCookies",
         "socials": {
-            "bandcamp": "m-a-t-o"
+            "twitter": "MatoCookies",
+            "bandcamp": "m-a-t-o",
+            "github": "Matojeje",
+            "kofi": "riiii"
         }
     },
     "konix": {

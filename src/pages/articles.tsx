@@ -13,7 +13,7 @@ type ListDocsProps = {
     }[]
 }
 
-export default function ListDocs({articles}: ListDocsProps) {
+export default function Articles({articles}: ListDocsProps) {
     return (<>
         <h1 className="text-5xl">Articles</h1>
         <NavBar></NavBar>

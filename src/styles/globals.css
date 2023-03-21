@@ -11,5 +11,5 @@ html {
 }
 
 #__next {
-    @apply p-8 flex flex-col min-h-screen;
+    @apply p-2 sm:p-4 md:p-8 flex flex-col min-h-screen;
 }
