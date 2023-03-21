@@ -39,18 +39,44 @@ const brandLookup = {
 
 const brand = (key: string) => brandLookup[key as keyof typeof brandLookup];
 
-export function Contributor({who}: ContributorProps) {
-    const boi = bois[who.toLowerCase() as keyof typeof bois] || {};
+type BoiProps = {
+    display?: string
+    socials?: keyof typeof brandLookup;
+    globals?: string[]
+}
 
+function Contributor({who}: ContributorProps) {
+    const {display, socials, globals} = (bois[who.toLowerCase() as keyof typeof bois] || {}) as BoiProps;
     return (<>
         <div className='flex justify-between flex-wrap items-center not-prose p-1 pl-2 pr-2 even:bg-black even:bg-opacity-20'>
-            <p className="font-semibold text-xl">{boi.display || who}<wbr /></p>
-            <div className='flex gap-2 justify-end flex-1'>{
-            boi.socials && Object.entries(boi.socials).map(([key, value]) => 
-                <a key={`${key}-${value}`} className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors" title={brand(key).name(value)} href={brand(key).url(value)}>
-                    {brand(key).icon()}
-                </a>
-            )}</div>
+            <p className="font-semibold text-xl">{display || who}<wbr /></p>
+            <div className='flex gap-2 justify-end flex-1'><>
+                {globals && globals.map((url) => 
+                    <a key={`${display}-${url}`} 
+                    className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors" 
+                    title={url} href={url}><i className="fa-solid fa-globe"></i></a>
+                )}
+                {socials && Object.entries(socials).map(([key, value]) => 
+                        <a key={`${key}-${value}`} 
+                        className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors" 
+                        title={brand(key).name(value)} href={brand(key).url(value)}>
+                            {brand(key).icon()}
+                        </a>
+                )}
+            </></div>
         </div>
     </>);
+}
+
+type ContributorsProps = {
+    color: string,
+    contributors: string[]
+}
+
+export function Contributors({color, contributors}: ContributorsProps) {
+    return <div style={{backgroundColor: color}} className="text-white rounded mt-4">{
+        contributors.map((name) => 
+            <Contributor key={name} who={name}/>
+        )
+    }</div>
 }

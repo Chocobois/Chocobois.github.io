@@ -11,7 +11,8 @@
         "socials": {
             "kofi": "LuxxArt",
             "twitter": "@LuxxArt"
-        }
+        },
+        "globals": ["https://luxxart.carrd.co/"]
     },
     "arcticfqx": {
         "display": "ArcticFqx",
@@ -27,10 +28,12 @@
             "bandcamp": "m-a-t-o",
             "github": "Matojeje",
             "kofi": "riiii"
-        }
+        },
+        "globals": [
+            "https://mato.bio.link/"
+        ]
     },
     "konix": {
-        "display": "KonixKun",
-        "socials": {}
+        "display": "KonixKun"
     }
 }

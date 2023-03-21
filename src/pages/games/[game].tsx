@@ -3,7 +3,7 @@ import { GameFrame } from "@/components/game-frame";
 import { useFullScreenButton } from "@/hooks/fullscreen-button";
 import { GetFromCategory } from "@/util/content-lister";
 import { lazy, Suspense } from "react";
-import { Contributor } from "@/components/contributors";
+import { Contributors } from "@/components/contributors";
 import { Title } from "@/components/head-title";
 
 interface GamesProps {
@@ -30,12 +30,6 @@ export default function Games({game}: GamesProps) {
         href={game.href}
     />);
 
-    const contributors = (<div style={{backgroundColor: game.color}} className="text-white rounded mt-4">{
-        game.contributors.map((name) => 
-            <Contributor key={name} who={name}/>
-        )
-    }</div>);
-    
     return (<>
         <Title>{game.name}</Title>
         <div>
@@ -43,7 +37,13 @@ export default function Games({game}: GamesProps) {
             <NavBar />
             <Suspense>
                 <div className="prose prose-invert max-w-none">
-                    <MDX Game={gameFrame} FullScreenButton={<FullScreenButton />} Contributors={contributors}/>
+                    <MDX 
+                        Game={gameFrame} 
+                        FullScreenButton={<FullScreenButton />} 
+                        Contributors={<Contributors 
+                            color={game.color} 
+                            contributors={game.contributors} />}
+                    />
                 </div>
             </Suspense>
         </div>
