@@ -16,12 +16,14 @@ export default function MdxPre({className, children, ...props}: JSX.IntrinsicEle
     const line = Number(split[(split.findIndex((el: string) => el == 'line')+1)]);
     const trimmedCode = String(split[split.length-1]).trim();
 
+    const hasDesc = desc != split.length-1 || file != split.length-1;
+
     return (<>
         <div className='relative overflow-hidden bg-slate-900 rounded mb-2'>
-            <div className="flex justify-between gap-8 prose max-w-none pl-2 pr-2 pt-1 text-sm">
+            {hasDesc && <div className="flex justify-between gap-8 prose max-w-none pl-2 pr-2 pt-1 text-md font-semibold">
                 <p className="m-0 text-slate-300">{desc != split.length-1 ? split[desc] : ''}</p>
                 <p className="m-0 text-stone-400">{file != split.length-1 ? split[file] : ''}</p>
-            </div>
+            </div>}
             <Highlighter 
                 className={`not-prose rounded m-2`}
                 language={match[1]}
