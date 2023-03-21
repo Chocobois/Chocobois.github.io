@@ -4,6 +4,7 @@ import { useFullScreenButton } from "@/hooks/fullscreen-button";
 import { GetFromCategory } from "@/util/content-lister";
 import { lazy, Suspense } from "react";
 import { Contributor } from "@/components/contributors";
+import { Title } from "@/components/head-title";
 
 interface GamesProps {
     game: {
@@ -36,6 +37,7 @@ export default function Games({game}: GamesProps) {
     }</div>);
     
     return (<>
+        <Title>{game.name}</Title>
         <div>
             <h1 className="text-5xl">{game.name}</h1>
             <NavBar />

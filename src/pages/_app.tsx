@@ -4,9 +4,11 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { type AppType } from "next/dist/shared/lib/utils";
 import Head from "next/head";
 import MDXProviderChoco from "@/components/mdx-provider-choco";
+import { Title } from "@/components/head-title";
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (<>
+    <Title />
     <Head>
       <link rel="shortcut icon" href="/favico.png" />
     </Head>

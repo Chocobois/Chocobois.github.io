@@ -3,6 +3,7 @@ import { nanoid } from 'nanoid';
 import Link from "next/link";
 import moment from "moment";
 import { GetFromCategory } from '@/util/content-lister';
+import { Title } from "@/components/head-title";
 
 type ListDocsProps = {
     articles: {
@@ -15,6 +16,7 @@ type ListDocsProps = {
 
 export default function Articles({articles}: ListDocsProps) {
     return (<>
+        <Title>Articles</Title>
         <h1 className="text-5xl">Articles</h1>
         <NavBar></NavBar>
         <div className="flex flex-col gap-2">{

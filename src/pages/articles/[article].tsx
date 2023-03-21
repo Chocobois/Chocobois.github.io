@@ -2,6 +2,7 @@ import { GetStaticProps } from "next";
 import { lazy, Suspense } from "react";
 import { NavBar } from "@/components/nav-bar";
 import { GetFromCategory } from '@/util/content-lister';
+import { Title } from "@/components/head-title";
 
 type ArticleProps = {page: string, name: string};
 
@@ -9,6 +10,7 @@ export default function Article({page, name}: ArticleProps) {
     const MDX = lazy(() => import(`#/articles/${page}.mdx`));
 
     return (<>
+        <Title>{name}</Title>
         <h1 className="text-5xl">{name}</h1>
         <NavBar></NavBar>
         <Suspense>

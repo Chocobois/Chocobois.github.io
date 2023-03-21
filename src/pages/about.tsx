@@ -1,7 +1,9 @@
+import { Title } from "@/components/head-title";
 import { NavBar } from "@/components/nav-bar";
 
 export default function About() {
     return (<>
+        <Title>The bois</Title>
         <div>
             <h1 className="text-5xl">About</h1>
             <NavBar />

@@ -3,6 +3,7 @@ import { GameCard } from "@/components/game-card";
 import { GetFromCategory } from "@/util/content-lister";
 import { SyncPublicDirectory } from "@/util/copy-images";
 import { nanoid } from "nanoid";
+import { Title } from "@/components/head-title";
 
 type GamesProps = {
     games: {
@@ -20,6 +21,7 @@ type GamesProps = {
 
 export default function Games({ games }: GamesProps) {
     return (<>
+        <Title>Games</Title>
         <div>
             <h1 className="text-5xl">Games</h1>
             <NavBar />
