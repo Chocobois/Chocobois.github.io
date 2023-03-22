@@ -15,6 +15,7 @@ interface GamesProps {
         href: string
         contributors: string[]
         color: string
+        roles: Object
     }
 }
 
@@ -42,7 +43,9 @@ export default function Games({game}: GamesProps) {
                         FullScreenButton={<FullScreenButton />} 
                         Contributors={<Contributors 
                             color={game.color} 
-                            contributors={game.contributors} />}
+                            contributors={game.contributors}
+                            roles={game.roles} />
+                        }
                     />
                 </div>
             </Suspense>
@@ -63,7 +66,7 @@ export async function getStaticPaths() {
 export const getStaticProps = async ({params}: any) => {
     const file = (`${params?.game}`);
     const { meta } = await import(`#/games/${file}.mdx`);
-    const { name, date, source, cover, contributors, color } = meta;
+    const { name, date, source, cover, contributors, color, roles = {} } = meta;
     return {
         props: {
             game: {
@@ -73,6 +76,7 @@ export const getStaticProps = async ({params}: any) => {
                 cover,
                 contributors,
                 color,
+                roles,
                 href: file
             }
         }

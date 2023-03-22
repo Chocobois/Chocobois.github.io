@@ -1,9 +1,5 @@
 import bois from '#/bois.json';
 
-type ContributorProps = {
-    who: string
-}
-
 const brandLookup = {
     twitter: {
         name: (at: string) => `Twitter: ${at}`,
@@ -39,26 +35,31 @@ const brandLookup = {
 
 const brand = (key: string) => brandLookup[key as keyof typeof brandLookup];
 
+type ContributorProps = {
+    who: string
+    role?: string
+}
+
 type BoiProps = {
     display?: string
     socials?: keyof typeof brandLookup;
     globals?: string[]
 }
 
-function Contributor({who}: ContributorProps) {
+function Contributor({who, role}: ContributorProps) {
     const {display, socials, globals} = (bois[who.toLowerCase() as keyof typeof bois] || {}) as BoiProps;
     return (<>
         <div className='flex justify-between flex-wrap items-center not-prose p-1 pl-2 pr-2 even:bg-black even:bg-opacity-20'>
-            <p className="font-semibold text-xl">{display || who}<wbr /></p>
+            <p className="font-semibold text-xl flex items-center"><>{display || who}{role && <span className='text-xs text-slate-300'>&nbsp;{`- ${role}`}</span>}</></p>
             <div className='flex gap-2 justify-end flex-1'><>
                 {globals && globals.map((url) => 
                     <a key={`${display}-${url}`} 
-                    className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors" 
+                    className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors aspect-square" 
                     title={url} href={url}><i className="fa-solid fa-globe"></i></a>
                 )}
                 {socials && Object.entries(socials).map(([key, value]) => 
                         <a key={`${key}-${value}`} 
-                        className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors" 
+                        className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors aspect-square" 
                         title={brand(key).name(value)} href={brand(key).url(value)}>
                             {brand(key).icon()}
                         </a>
@@ -71,12 +72,13 @@ function Contributor({who}: ContributorProps) {
 type ContributorsProps = {
     color: string,
     contributors: string[]
+    roles: any
 }
 
-export function Contributors({color, contributors}: ContributorsProps) {
+export function Contributors({color, contributors, roles}: ContributorsProps) {
     return <div style={{backgroundColor: color}} className="text-white rounded mt-4">{
         contributors.map((name) => 
-            <Contributor key={name} who={name}/>
+            <Contributor key={name} who={name} role={roles?.[name]}/>
         )
     }</div>
 }
