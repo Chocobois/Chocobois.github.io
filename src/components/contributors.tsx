@@ -47,7 +47,7 @@ type BoiProps = {
 }
 
 function Contributor({who, role}: ContributorProps) {
-    const {display, socials, globals} = (bois[who.toLowerCase() as keyof typeof bois] || {}) as BoiProps;
+    const {display, socials, globals} = (bois[who.toLowerCase() as keyof typeof bois] || {}) as unknown as BoiProps;
     return (<>
         <div className='flex justify-between flex-wrap items-center not-prose p-1 pl-2 pr-2 even:bg-black even:bg-opacity-20'>
             <p className="font-semibold text-xl flex items-center"><>{display || who}{role && <span className='text-xs text-slate-300'>&nbsp;{`- ${role}`}</span>}</></p>

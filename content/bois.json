@@ -1,5 +1,6 @@
 {
     "golen": {
+        "display": "Golen",
         "socials": {
             "twitter": "@Golenchu",
             "github": "Golen87"
@@ -43,19 +44,23 @@
         ]
     },
     "miau": {
+        "display": "Miau",
         "socials": {
             "twitter": "@JolteonDude",
             "kofi": "miau0283"
         }
     },
     "frassy": {
+        "display": "Frassy",
         "socials": {
             "twitter": "@the_frassy_one"
         }
     },
     "jwatch": {
+        "display": "JWatch",
         "socials": {
-            "twitter": "@justicewatch24"
+            "twitter": "@justicewatch24",
+            "kofi": "justicewatch"
         }
     },
     "dreeda": {
@@ -65,16 +70,19 @@
         }
     },
     "lumie": {
+        "display": "Lumie",
         "socials": {
             "twitter": "@NightLightLumie"
         }
     },
     "squishy": {
+        "display": "Squishy",
         "socials": {
             "twitter": "@Squishy_Snail"
         }
     },
     "shaymoo": {
+        "display": "Shaymoo",
         "socials": {
             "twitter": "@TheShaymoo"
         },
