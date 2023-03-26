@@ -1,6 +1,5 @@
 {
     "golen": {
-        "display": "Golenchu",
         "socials": {
             "twitter": "@Golenchu",
             "github": "Golen87"
@@ -24,7 +23,7 @@
     "mato": {
         "display": "MatoCookies",
         "socials": {
-            "twitter": "MatoCookies",
+            "twitter": "@MatoCookies",
             "bandcamp": "m-a-t-o",
             "github": "Matojeje",
             "kofi": "riiii"
@@ -34,6 +33,53 @@
         ]
     },
     "konix": {
-        "display": "KonixKun"
+        "display": "KonixKun",
+        "socials": {
+            "twitter": "@KonixKun",
+            "kofi": "konixkun"
+        },
+        "globals": [
+            "https://konixkun.carrd.co/"
+        ]
+    },
+    "miau": {
+        "socials": {
+            "twitter": "@JolteonDude",
+            "kofi": "miau0283"
+        }
+    },
+    "frassy": {
+        "socials": {
+            "twitter": "@the_frassy_one"
+        }
+    },
+    "jwatch": {
+        "socials": {
+            "twitter": "@justicewatch24"
+        }
+    },
+    "dreeda": {
+        "display": "Dreedawott",
+        "socials": {
+            "twitter": "@Dreedawott"
+        }
+    },
+    "lumie": {
+        "socials": {
+            "twitter": "@NightLightLumie"
+        }
+    },
+    "squishy": {
+        "socials": {
+            "twitter": "@Squishy_Snail"
+        }
+    },
+    "shaymoo": {
+        "socials": {
+            "twitter": "@TheShaymoo"
+        },
+        "globals": [
+            "https://shaymoo.net/"
+        ]
     }
 }
