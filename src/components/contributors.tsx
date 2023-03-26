@@ -31,6 +31,11 @@ const brandLookup = {
         url: (at: string) => `https://${at}.bandcamp.com/`,
         icon: () => <i className='fa-brands fa-bandcamp' />,
     },
+    itch: {
+        name: (at: string) => `Itch: ${at}`,
+        url: (at: string) => `https://${at}.itch.io/`,
+        icon: () => <i className='fa-brands fa-itch-io' />,
+    },
 }
 
 const brand = (key: string) => brandLookup[key as keyof typeof brandLookup];

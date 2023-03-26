@@ -3,7 +3,8 @@
         "display": "Golen",
         "socials": {
             "twitter": "@Golenchu",
-            "github": "Golen87"
+            "github": "Golen87",
+            "itch": "golen"
         }
     },
     "luxx": {
@@ -89,5 +90,12 @@
         "globals": [
             "https://shaymoo.net/"
         ]
+    },
+    "hexagon": {
+        "display": "HeXaGoN",
+        "socials": {
+            "twitter": "@HeXaGoN62",
+            "github": "hexagon62"
+        }
     }
 }
