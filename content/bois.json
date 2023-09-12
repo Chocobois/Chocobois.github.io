@@ -97,5 +97,20 @@
             "twitter": "@HeXaGoN62",
             "github": "hexagon62"
         }
+    },
+    "soulsong": {
+        "display": "Soulsong",
+        "socials": {
+            "twitter": "@SoulsongRocs"
+        }
+    },
+    "vadapega": {
+        "display": "VAdaPEGA",
+        "socials": {
+            "twitter": "@VAdePEGA"
+        },
+        "globals": [
+            "https://vadapega.art/"
+        ]
     }
 }
