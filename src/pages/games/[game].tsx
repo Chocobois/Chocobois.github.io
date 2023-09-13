@@ -29,6 +29,7 @@ export default function Games({game}: GamesProps) {
         className="drop-shadow-lg"
         cover={game.cover}
         href={game.href}
+        color={game.color}
     />);
 
     return (<>

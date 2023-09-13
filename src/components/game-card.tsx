@@ -38,7 +38,7 @@ export function GameCard({game}: GameCardProps) {
             </div>
             <div className="p-2" style={{transform: "translateZ(15px)"}}>
                 <p className='font-bold text-xl'>{game.name}</p>
-                <p>{game.description}</p>
+                <p style={{textWrap: "balance"}}>{game.description}</p>
             </div>
         </Link>
     </>);

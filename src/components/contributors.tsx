@@ -55,16 +55,16 @@ function Contributor({who, role}: ContributorProps) {
     const {display, socials, globals} = (bois[who.toLowerCase() as keyof typeof bois] || {}) as unknown as BoiProps;
     return (<>
         <div className='flex justify-between flex-wrap items-center not-prose p-1 pl-2 pr-2 even:bg-black even:bg-opacity-20'>
-            <p className="font-semibold text-xl flex items-center"><>{display || who}{role && <span className='text-xs text-slate-300'>&nbsp;{`- ${role}`}</span>}</></p>
+            <p className="font-semibold text-xl flex items-center"><>{display || who}{role && <span className='text-xs text-white/70 translate-y-0.5'>&nbsp;{`– ${role}`}</span>}</></p>
             <div className='flex gap-2 justify-end flex-1'><>
                 {globals && globals.map((url) => 
                     <a key={`${display}-${url}`} 
-                    className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors aspect-square" 
+                    className="bg-slate-800 rounded hover:bg-slate-700 active:translate-y-px transition-colors aspect-square h-9 grid place-items-center" 
                     title={url} href={url}><i className="fa-solid fa-globe"></i></a>
                 )}
                 {socials && Object.entries(socials).map(([key, value]) => 
                         <a key={`${key}-${value}`} 
-                        className="bg-slate-800 p-1 pl-2 pr-2 rounded hover:bg-slate-700 transition-colors aspect-square" 
+                        className="bg-slate-800 rounded hover:bg-slate-700 active:translate-y-px transition-colors aspect-square h-9 grid place-items-center" 
                         title={brand(key).name(value)} href={brand(key).url(value)}>
                             {brand(key).icon()}
                         </a>

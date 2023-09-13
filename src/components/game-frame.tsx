@@ -9,6 +9,7 @@ interface GameFrameProps {
     className?: string
     fullscreenHandle?: FullScreenHandle
     href?: string
+    color?: string
 }
 
 export const GameFrame = ({
@@ -17,7 +18,8 @@ export const GameFrame = ({
         aspectRatio = '16/9', 
         fullscreenHandle,
         className = '',
-        href = ''
+        href = '',
+        color = '#ea580c'
     }: GameFrameProps ) => {
 
     const [enabled, setEnabled] = useState(false);
@@ -36,7 +38,7 @@ export const GameFrame = ({
 
     return (<>
         <div 
-            className={`bg-slate-900 overflow-hidden relative flex justify-center items-center rounded ${className}`} 
+            className={`bg-slate-900 overflow-hidden relative flex justify-center items-center rounded select-none ${className}`} 
             style={{aspectRatio: aspectRatio}}>
             {
                 enabled ? 
@@ -44,7 +46,8 @@ export const GameFrame = ({
                     <>
                         {cover && <img src={`./${href}/${cover}`} alt="Game banner" className='object-cover opacity-50 h-full'></img>}
                         <button 
-                            className='absolute font-bold bg-orange-600 hover:bg-orange-500 rounded p-2 transition-colors' 
+                            style={{background: color}}
+                            className='absolute text-white font-bold hover:text-gray-300 hover:brightness-125 rounded px-4 py-2 transition' 
                             onClick={() => setEnabled(true)}>
                             Click to start
                         </button>
