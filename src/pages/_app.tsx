@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/chocoicon.css";
 import "@fortawesome/fontawesome-free/css/all.min.css"; 
 
 import { type AppType } from "next/dist/shared/lib/utils";

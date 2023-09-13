@@ -17,3 +17,9 @@ html {
 button {
     user-select: none;
 }
+
+/* Can't do inline custom hover colors with Tailwind, sorry */
+.brand-button:hover {
+    color: var(--brandColor, #1DCDFF);
+    text-shadow: 0 1px 4px #0006;
+}

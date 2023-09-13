@@ -24,6 +24,8 @@ export function GameCard({game}: GameCardProps) {
     useEffectOnce(() => {
         const card = cardRef.current as HTMLVanillaTiltElement;
         Tilt.init(card, {
+            glare: true,
+            "max-glare": 0.2,
             reverse: !isMobile,
             scale: 1.05,
             perspective: 2000,
@@ -38,7 +40,7 @@ export function GameCard({game}: GameCardProps) {
             </div>
             <div className="p-2" style={{transform: "translateZ(15px)"}}>
                 <p className='font-bold text-xl'>{game.name}</p>
-                <p style={{textWrap: "balance"}}>{game.description}</p>
+                <p style={{['textWrap' as any]: "balance"}}>{game.description}</p>
             </div>
         </Link>
     </>);
