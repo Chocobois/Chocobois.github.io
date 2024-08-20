@@ -116,7 +116,9 @@
     "nemi": {
         "display": "Nemi",
         "socials": {
-            "github": "@Assimileafy"
+            "github": "Assimileafy",
+            "twitter": "@assimileafy",
+            "bluesky": "assimileafy.bsky.social"
         }
     }
 }

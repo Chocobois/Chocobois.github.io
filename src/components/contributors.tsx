@@ -43,6 +43,12 @@ const brandLookup = {
         url: (at: string) => `https://${at}.itch.io/`,
         icon: () => <i className='fa-brands fa-itch-io' />,
     },
+    bluesky: {
+        name: (at: string) => `Bluesky: ${at}`,
+        color: () => "#0285FF",
+        url: (at: string) => `https://bsky.app/profile/${at}`,
+        icon: () => <i className='icon-bluesky' />,
+    },
 }
 
 const brand = (key: string) => brandLookup[key as keyof typeof brandLookup];
