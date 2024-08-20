@@ -20,6 +20,7 @@
   font-family: "chocoicon";
   font-style: normal;
   font-weight: normal;
+  speak: never;
 
   display: inline-block;
   text-decoration: inherit;
@@ -59,6 +60,7 @@
 .icon-globe:before { content: '\e806'; } /* '' */
 .icon-buttonhome:before { content: '\e80a'; } /* '' */
 .icon-list-drag-handle-symbolic:before { content: '\e834'; } /* '' */
+.icon-bluesky:before { content: '\e835'; } /* '' */
 .icon-github-face-2:before { content: '\f055'; } /* '' */
 .icon-github:before { content: '\f056'; } /* '' */
 .icon-gamepad:before { content: '\f11b'; } /* '' */
