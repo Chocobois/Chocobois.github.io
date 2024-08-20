@@ -112,5 +112,11 @@
         "globals": [
             "https://vadapega.art/"
         ]
+    },
+    "nemi": {
+        "display": "Nemi",
+        "socials": {
+            "github": "@Assimileafy"
+        }
     }
 }
